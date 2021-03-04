@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ng="http://angularjs.org" id="ng-app" data-ng-app="ProductApp">
+<head>
+
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="/favicon.ico" />
+
+
+    <!-- Standard includes -->
+    <script type="text/javascript" src="../js/libs/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/angular-1.2.20/angular.js?v=03/11/2015T08:10AM"></script>
+    <script type="text/javascript" src="../js/libs/angular-local-storage.js"></script>
+    <script type="text/javascript" src="../js/libs/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script type="text/javascript" src="../js/angular-1.2.20/angular-route.js"></script>
+    <script type="text/javascript" src="../js/angular-1.2.20/angular-sanitize.js"></script>
+    <script type="text/javascript" src="../js/angular-1.2.20/angular-resource.js"></script>
+    <script type="text/javascript" src="../js/libs/angular-local-storage.js"></script>
+    <script type="text/javascript" src="../js/libs/angular-ui.js?v=12/05/2015T12:30PM"></script>
+    <script type="text/javascript" src="../js/libs/angular-file-upload.js"></script>
+    <script type="text/javascript" src="../js/libs/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script type="text/javascript" src="../js/libs/angular-ui-keypress.js"></script>
+    <script type="text/javascript" src="../js/libs/ng-infinite-scroll.js?v=10/10/2014T01:10PM"></script>
+
+
+    <!--Style-->
+    <link rel="Stylesheet" href="../Css/font-awesome.css" media="screen" />
+    
+    <link rel="Stylesheet" href="../Css/toastr.css?v=25/07/2014T06:00PM" media="screen" />
+    <link rel="Stylesheet" href="../Css/spectrum.css" media="screen" />
+    <link rel="Stylesheet" href="../Css/quill.snow.css" media="screen" />
+
+
+    <!--Custom Style-->
+    <link rel="Stylesheet" href="../Css/common-styles.css?v=07/07/2020T04:00PM" media="screen" />
+    <link rel="Stylesheet" href="styles/reports.css?v=08/07/2020T07:00AM" media="screen" />
+    <!-- Contollers-->
+    <script type="text/javascript" src="Controllers/homeController.js"></script>
+    <!-- Services -->
+    <script type="text/javascript" src="Services/homePageService.js"></script>
+   
+</head>
+<body>
+    
+        <title>Welcome to Product Details Page</title>
+    
+    <div id="mainContent" data-ng-controller="homecontroller">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon">Search Products</span>
+                                    <input type="text" id="searchQuery" class="form-control" placeholder="Product search..." data-ng-model="query" data-ui-keyup="{'esc': 'onSearchEscape($event)'}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body" infinite-scroll="showMoreData()" infinite-scroll-disabled="isLoadMoreData" infinite-scroll-distance="0">
+                        <table id="reportTable" class="table table-striped list" data-ng-cloak>
+                            <thead>
+                                <tr class="table-header">
+                                    <th data-ng-repeat="thead in tableHead" class="{{thead.cssClass}}">
+                                        <span data-ng-click="sort_by(thead.name)">{{thead.display}}</span><span class="glyphicon glyphicon-chevron-{{arrow}}" data-ng-class="{'active': sortingOrder == thead.name}"></span>
+                                    </th>
+                                    <th class="report-action"></th>
+                                    <th class="report-run">
+                                        <div data-ng-pluralize data-count="productlists.length" data-when="pluralizer('product','products')"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-ng-show="!loading">
+                                <tr data-ng-repeat="item in productlists | orderBy:sortingOrder:reverse">
+                                    <td class="product-Id">{{item.ProductId}}</td>
+                                    <td class="product-name large-screen">{{item.Name}}</td>
+                                    <td class="product-description large-screen">{{item.Description}}</td>
+                                    <td class="product-unitprce">{{item.UnitPrice}}</td>
+                                    <td class="product-quantity">{{item.MaximumQuantity}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div id="loadingIndicator" data-ng-show="loading || isLoadMoreData" class="text-muted text-center">
+                            <i class="text-info icon-spinner icon-spin icon-large"></i> &nbsp;Loading products, please wait...
+                        </div>
+
+                        <div class="text-center margin-bottom" data-ng-if="showMoreBtn() && !loading && !query">
+                            <a data-ng-click="showMoreData()">Show more...</a>
+                        </div>
+
+                        <div data-alert="" data-ng-repeat="alert in reportAlert" data-type="alert.type">{{alert.msg}}</div>
+                        <div data-ng-show="query.length && !loading && !isLoadMoreData">
+                            <div data-alert="" data-type="{true: 'info', false: 'warning'}[productlists.length > 0]">
+                                <div data-ng-pluralize="" data-count="productlists.length" data-when="pluralizer('product', 'products', true)"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

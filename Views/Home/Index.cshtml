@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:ng="http://angularjs.org" lang="en" data-ng-app="loginApp">
+<head runat="server">
+    <!-- Standard includes -->
+    <script type="text/javascript" src="../js/libs/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/angular-1.2.20/angular.js?v=03/11/2015T08:10AM"></script>
+    <script type="text/javascript" src="../js/libs/angular-local-storage.js"></script>
+    <script type="text/javascript" src="../js/libs/ui-bootstrap-tpls-0.11.0.js"></script>
+
+
+
+    <!-- Custom Styles -->
+    <link rel="Stylesheet" href="../Login/login.css" media="screen" />
+    <!--Main App -->
+
+    <script type="text/javascript" src="../Login/loginModule.js"></script>
+
+
+</head>
+<body>
+
+    <div id="mainContent" data-ng-controller="loginController">
+        <div class="container text-center" id="bodyContent" style="padding-top: 20px;">
+            <div class="login-box" data-ng-if="!responseMsg">
+                <h3 class="login-title">
+                    <span class="title">Welcome to Login Page</span>
+                </h3>
+                <form name="loginForm" data-ng-submit="loginUser(user)" id="loginForm" role="form" novalidate=novalidate>
+                    <div class="login-form">
+                        <div data-ng-repeat="alert in loginAlert" class="alert alert-{{alert.type}}">
+                            <a class="close" data-ng-click="closeLoginAlert($index)">×</a>
+                            {{alert.msg}}
+                        </div>
+
+                        <div class="input-group input-group-lg login-username">
+                            <span class="input-group-addon"><i class="icon-user"></i></span>
+                            <input type="text" class="form-control" id="username" name="username" data-ng-model="user.UserName" placeholder="Username" data-ng-disabled="loading" data-ng-required="true" autofillable="" />
+                        </div>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="icon-unlock-alt" style="display:block;width:15px;"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" data-ng-model="user.Password" placeholder="Password" data-ng-disabled="loading" data-ng-required="true" autofillable="" />
+                        </div>
+                        <div class="text-right margin-bottom20">
+                            <label for="rememberMe" style="font-weight:normal;"><input type="checkbox" id="rememberMe" data-ng-model="user.Remembered" data-ng-disabled="loading" /> <span>Remember me</span></label>
+                        </div>
+
+                        <button class="btn btn-info btn-osblue btn-lg full-width" data-ng-disabled="loading || loginForm.$invalid">Login</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-alert alert alert-warning col-md-8" data-ng-if="responseMsg">
+                <i class="icon-exclamation-sign icon-4x"></i>
+                <p>{{responseMsg}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

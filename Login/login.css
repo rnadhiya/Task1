@@ -1,0 +1,65 @@
+﻿div.login-box {
+    float: none;
+    margin: 10px auto 15px;
+    max-width: 500px;
+    border: 1px solid #DDD;
+    -webkit-box-shadow: 0px 1px 1px 0px #ededed;
+    -moz-box-shadow: 0px 1px 1px 0px #ededed;
+    box-shadow: 0px 1px 1px 0px #ededed;
+}
+
+.login-title {
+    font-family: "Segoe UI Semibold","Segoe UI",sans-serif;
+    padding: 30px 10px 10px;
+    border-radius: 1px 1px 0px 0px;
+    margin: 0px;
+}
+
+    .login-title .title {
+        display: inline-block;
+    }
+
+        .login-title .title .subtitle {
+            display: block;
+            width: 100%;
+            text-align: right;
+            font-size: 14px;
+            color: gray;
+            padding-top: 5px;
+        }
+
+.login-form {
+    padding: 10px 15px;
+    border-radius: 0px 0px 1px 1px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.half-background {
+    background-color: #CECECE;
+    height: 50%;
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+}
+
+.login-form .input-group {
+    margin: 15px 0px;
+}
+
+.input-group.login-username {
+    margin-top: 5px;
+}
+
+.login-alert {
+    float: none;
+    margin: 0px auto;
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    vertical-align: top;
+}

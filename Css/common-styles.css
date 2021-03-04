@@ -1,0 +1,278 @@
+﻿/* this contains common styles used by all pages in srf web */
+
+/* General */
+html { height: 100%; }
+body { height: 100%; }
+#mainContent { min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -31px;visibility: hidden; }
+#mainContent.no-loading { visibility: visible !important; }
+.normal-font { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+.break-word { word-break: break-all; }
+.height15 { height:150px; }
+.height18 { height:180px; }
+.padding-top { padding-top: 5px; }
+.padding-bottom { padding-bottom: 5px; }
+.font-red { color: red; font-weight: bold; }
+.text-capitalize { text-transform: capitalize; }
+.full-width { width: 100%; }
+.fill-parent { width: 100%; height: 100%; }
+.wrap-content { min-width: 10px; }
+.margin-left { margin-left: 10px; }
+.margin-top { margin-top: 10px; }
+.margin-right { margin-right: 10px; }
+.margin-bottom { margin-bottom: 10px; }
+.margin-top5 { margin-top: 5px; }
+.margin-top20 { margin-top: 20px; }
+.margin-top30 { margin-top: 30px; }
+.margin-top40 { margin-top: 40px; }
+.margin-top-33 { margin-top: -33px; }
+.margin-left30 { margin-left: 30px; }
+.margin-bottom15 { margin-bottom: 15px; }
+.margin-bottom20 { margin-bottom: 20px; }
+.margin-bottom40 { margin-bottom: 40px; }
+.margin-bottom-10 { margin-bottom: -10px; }
+.font-medium { font-size: medium; }
+a.normal { text-decoration: underline; }
+.text-capitalize { text-transform: capitalize; }
+textarea.resizeV { min-height: 35px;resize: vertical; }
+.panel-body.header-nav { padding: 8px 15px;list-style: none; }
+.panel-body.header-nav .navigation { margin:0px;padding:0px; }
+.panel-body.header-nav .navigation > li { display: inline-block; }
+.panel-body.header-nav .navigation > li + li:before { padding: 0 5px;color: #ccc;content: ">"; }
+.panel-body.header-nav .navigation > .active { color: #777; }
+.inline { display: inline; }
+.calendar + ul.dropdown-menu { min-width: 260px; }
+.title-super, .title-side { font-size: 12px; }
+.title-super { vertical-align: super; }
+.title-side.label { padding: .3em .6em; background-color: #FF6600; }
+label.normal-label { font-weight:normal;vertical-align:middle; }
+.text-gold { color: gold; }
+
+/*-----SRF TABLE STYLES-----*/
+table.parameter-list { width: 90%; margin: 0px auto; }
+.table td.checkboxes, .table th.checkboxes { width: 7px;text-align: right; }
+table.list thead { font-size: 12px;font-weight: bold; }
+table.table tbody tr:hover>td { background-color: #d9edf7; }
+td span.actions { white-space: nowrap; }
+.load-list { font-size: 12px;text-align: center;margin-bottom: 10px; }
+
+/* highlight action icons on hover */
+a.action-icon { color: inherit; }
+a.action-icon:hover, a.action-icon:focus { color: #0088cc;text-decoration: none; }
+a:hover { cursor:pointer; }
+a.no-underline { text-decoration: none; }
+a:focus { outline: none; }
+input.error:focus { border-color: rgb(233, 50, 45);box-shadow: 0px 0px 6px rgb(248, 185, 183); }
+
+/* hide sorting arrow (up and down) until tab-head hovered */
+.table-header th span { cursor : pointer; }
+.table-header th > span.glyphicon { color: #0088cc;margin-left: 10px;visibility: hidden; }
+.table-header th span:hover + span.glyphicon { visibility: visible; }
+.table-header th > span.active { visibility: visible; }
+
+/* hide the action buttons until the row is hovered to prevent icon overload */
+td .actions a.action-icon { visibility: hidden;font-size: medium; }
+tr:hover td .actions a.action-icon { visibility: visible; }
+
+.highlight { background-color: yellow }
+
+/* common width */
+.width10 { width:10%; }
+.width20 { width:20%; }
+.width30 { width:30%; }
+.width40 { width:40%; }
+.width50 { width:50%; }
+.width60 { width:60%; }
+.width70 { width:70%; }
+.width80 { width:80%; }
+.width90 { width:90%; }
+
+.width15 { width:15%; }
+.width25 { width:25%; }
+.width35 { width:35%; }
+.width45 { width:45%; }
+.width55 { width:55%; }
+.width65 { width:65%; }
+.width75 { width:75%; }
+.width85 { width:85%; }
+.width95 { width:95%; }
+
+/* header */
+.active-bar { background-color: #0067A7; }
+.client-label { font-family: "Segoe UI",Helvetica,Arial,sans-serif; font-size:18px; font-weight:600; vertical-align:middle; padding-left:35px; text-transform:uppercase; }
+.navbar-brand .tooltip-inner { background-color:#DDD; border:none; color:#000; }
+.navbar-brand .tooltip.bottom .tooltip-arrow { border-bottom-color:#DDD; }
+
+/* staging header */
+.header.staging { background-color:#996699; }
+.staging .navbar-nav > .active > a,
+.staging .navbar-nav > .active > div,
+.staging .navbar-nav > .active > a:hover,
+.staging .navbar-nav > .active > div:hover,
+.staging .navbar-nav > .active > a:focus,
+.staging .navbar-nav > .active > div:focus,
+.staging .navbar-collapse,
+.staging .navbar-form,
+.staging .navbar-nav > .open > a,
+.staging .navbar-nav > .open > a:hover,
+.staging .navbar-nav > .open > a:focus,
+.staging > .col-md-12 { 
+	background-color: #996699;
+}
+.staging .nav .open > a:focus,
+.staging .nav .open > div:focus,
+.staging .navbar-nav > li > div:focus > a,
+.staging .navbar-nav > li > a:focus,
+.staging .nav > li > a:hover,
+.staging .nav .open > a,
+.staging .nav .open > div,
+.staging .nav .open > a:hover,
+.staging .nav .open > div:hover,
+.staging .navbar-nav > li:hover > a,
+.staging .navbar-nav > li:hover > div,
+.staging .navbar-nav > li > a:hover,
+.staging .navbar-nav > li > div:hover > a,
+.staging .nav > li > div > a:hover {
+  color: #FFFFFF;
+  background-color: #AD77AD !important;
+}
+.staging .nav > li > div > a:focus,
+.staging .nav > li > a:focus {
+  color: #FFFFFF;
+  background-color: #996699;
+}
+.staging .active-bar { background-color: #A36FA3; }
+
+/* Banner */
+.banner-icon { font-size: 25px; padding-right: 10px; }
+.banner-message { font-size: 15px; }
+
+/* footer */
+#footer { visibility: hidden; }
+#footerContent, .footer-space { height: 30px; }
+.footerContainer { border-top: 1px solid #e7e7e7;padding: 5px 25px;font-size: 10px;color: #999;text-align: right; }
+
+/*Main loading*/
+#mainLoading.center-page { position: absolute;top: 50%;left: 50%;margin-top: -31px;margin-left: -31px; }
+
+/******* these are for new command builder - modal ******/
+div.label-param { width: 110px;text-align: left;float: right; }
+.control-label-modified, .controls-modified { float: none;width: auto;text-align: left; }
+.control-group-modified { margin: 0px 30px 10px; }
+.param-builder-wide { width: 690px;margin-left: -345px;top: 15px;left: 50%; }
+.adv-mode-toggle { white-space: nowrap;float: left;padding: 4px 0px; }
+/****** end styles for new command builder - modal ******/
+
+/****** sub-menu for dropdown ******/
+.dropdown-submenu { position: relative; }
+.dropdown-submenu:hover>.dropdown-menu { display: block; }
+.dropdown-submenu>.dropdown-menu { top: 30px;right: 0;left: auto;margin-right: 10px;margin-top: -6px;margin-left: -1px;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; }
+.dropdown-submenu>a:after { display: block;content: " ";float: right;width: 0;height: 0;border-left: 5px solid transparent !important;border-right: 5px solid transparent;border-top: 5px solid #cccccc;margin-top: 8px;margin-right: -10px; }
+.dropdown-submenu.pull-left>.dropdown-menu { left: -100%;margin-left: 10px; }
+/****** end of sub-menu for dropdown ******/
+
+/****** custom style for autocomplete textbox ******/
+.ui-autocomplete { position:absolute; top:0; left:0; z-index:1510 !important; float:left; display:none; padding:4px 0; margin:2px 0 0 0; list-style:none;
+  border-color:#ccc; border-color:rgba(0, 0, 0, 0.2); border-style:solid; border-width:1px;
+  -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px;
+  -webkit-box-shadow:0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow:0 5px 10px rgba(0, 0, 0, 0.2); box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip:padding-box; -moz-background-clip:padding; background-clip:padding-box;
+  *border-right-width:2px; *border-bottom-width:2px;
+}
+.ui-menu .ui-menu-item { position: relative; margin:0; padding:3px 1em 3px .4em; cursor:pointer; min-height:0; }
+.ui-autocomplete.ui-widget-content { background-color: #fff; }
+.ui-autocomplete.ui-widget-content .ui-state-focus { border:0px none #fff; background-color:#428BCA; color:#FFF; font-weight:bold; }
+/****** custom style for autocomplete textbox ******/
+
+
+/****** custom style for upload box ******/
+div.fileinputs { position:relative; width:100%; }
+div.fileinputs div.fakefile { position:absolute; top:0px; left:0px; z-index:1; width:100%; }
+div.fileinputs input.file { position:relative; text-align:right; filter:alpha(opacity=0); opacity:0; z-index:2; width:100%; }
+/****** custom style for upload box ******/
+
+/*** custom buttons ***/
+.btn-osblue { background-color: #7ABEE7; border-color: #68B8E8; }
+.btn-osblue:hover,
+.btn-osblue:focus,
+.btn-osblue:active,
+.btn-osblue.active {
+  background-color: #5EC2FF;
+  border-color: #59C1FF;
+}
+
+.btn-osblue.disabled,
+.btn-osblue[disabled],
+fieldset[disabled] .btn-osblue,
+.btn-osblue.disabled:hover,
+.btn-osblue[disabled]:hover,
+fieldset[disabled] .btn-osblue:hover,
+.btn-osblue.disabled:focus,
+.btn-osblue[disabled]:focus,
+fieldset[disabled] .btn-osblue:focus,
+.btn-osblue.disabled:active,
+.btn-osblue[disabled]:active,
+fieldset[disabled] .btn-osblue:active,
+.btn-osblue.disabled.active,
+.btn-osblue.active[disabled],
+fieldset[disabled] .btn-osblue.active {
+	background-color: #4883A7;
+	border-color: #3FA1BE;
+}
+/*** custom buttons ***/
+
+/****************** REPONSIVENESS ************************/
+.small-screen, .mini-screen, td.taskListActions .action-multi, .user-small, .action-icon .icon-list, #tabCancelSmall, .infotip-small { display:none; visibility:hidden; }
+@media (max-width: 1280px) {
+	#thDescription, tr td.taskListDescription,
+	#thType, tr td.taskListType,
+    #thNextRun, tr td.taskListNextRun,
+    #thEndDate, tr td.taskListEndDate { display:none; visibility:hidden; }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	#thLastRun, tr td.taskListLastRun,
+	#thType, tr td.taskListType,
+    #thNextRun, tr td.taskListNextRun,
+    #thEndDate, tr td.taskListEndDate { display:none; visibility:hidden; }
+}
+@media (max-width: 767px) {
+	.header-btns .btn { margin-top:10px; }
+	.header-btns .btn-group { margin-top:5px; }
+	#searchBoxDiv { display: inline-block; }
+
+	#thDescription, tr td.taskListDescription,
+	#thType, tr td.taskListType,
+    #thNextRun, tr td.taskListNextRun,
+    #thEndDate, tr td.taskListEndDate,
+	#thLastRun, tr td.taskListLastRun,
+	#thLastRunStatus, tr td.taskListLastRunStatus,
+	#thReason, tr td.taskListReason,
+	.large-screen { display:none; visibility:hidden; }
+
+	.small-screen { display:block; visibility:visible; }
+	#task-details { padding: 0px 20px 20px; }
+	th.Description, td.Description { max-width: 200px; word-break: normal;}
+	.infotip-small { display: inline-block; visibility: visible; }
+	table.parameter-list { width: 100%;}
+}
+@media (max-width: 480px) {	
+	#thReport, tr td.taskListReport,
+	.medium-screen, td.taskListActions .actions, .user-medium,.action-icon .icon-caret-down, #tabCancelLarge, .tab-header { display:none; visibility:hidden; }
+	.mini-screen, td.taskListActions .action-multi, .user-small,.action-icon .icon-list, #tabCancelSmall { display:block; visibility:visible; }
+	.tabs-left > .nav-tabs > li > a	{ min-width: 0px; }
+	table.list thead { font-size: 9pt; }
+	th.Description, td.Description { max-width: 140px; }
+	div.label-param { width: auto;text-align: inherit;float: none; }
+	.control-group-modified { margin: 0px 0px 10px; }
+	.adv-mode-toggle { width: 100%;text-align: left;margin-bottom: 20px; }
+}
+@media only screen and (max-device-width: 767px) {
+	td.taskListActions .actions a, td .actions a.action-icon { visibility: visible; }
+}
+
+/** modal scrollable list **/
+.scroll_table{
+  overflow:auto;
+  max-height:500px;
+  width:100%;
+  margin:20px 0px;
+}

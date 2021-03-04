@@ -1,0 +1,59 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Search</span>
+                            <input type="text" id="searchQuery" class="form-control" placeholder="Report search..." data-ng-model="query" data-ui-keyup="{'esc': 'onSearchEscape($event)'}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body" infinite-scroll="showMoreData()" infinite-scroll-disabled="isLoadMoreData" infinite-scroll-distance="0">
+                <table id="reportTable" class="table table-striped list" data-ng-cloak>
+                    <thead>
+                        <tr class="table-header">
+                            <th data-ng-repeat="thead in tableHead" class="{{thead.cssClass}}">
+                                <span data-ng-click="sort_by(thead.name)">{{thead.display}}</span><span class="glyphicon glyphicon-chevron-{{arrow}}" data-ng-class="{'active': sortingOrder == thead.name}"></span>
+                            </th>
+                            <th class="report-action"></th>
+                            <th class="report-run">
+                                <div data-ng-pluralize data-count="productlists.length" data-when="pluralizer('product','products')"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-show="!loading">
+                        <tr data-ng-repeat="item in productlists | orderBy:sortingOrder:reverse">
+                            <td class="product-Id">{{item.ProductId}}</td>
+                            <td class="product-name large-screen">{{item.Name}}</td>
+                            <td class="product-description large-screen">{{item.Description}}</td>
+                            <td class="product-unitprce">{{item.UnitPrice}}</td>
+                            <td class="product-quantity">{{item.MaximumQuantity}}</td>     
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="loadingIndicator" data-ng-show="loading || isLoadMoreData" class="text-muted text-center">
+                    <i class="text-info icon-spinner icon-spin icon-large"></i> &nbsp;Loading reports, please wait...
+                </div>
+
+                <div class="text-center margin-bottom" data-ng-if="showMoreBtn() && !loading && !query">
+                    <a data-ng-click="showMoreData()">Show more...</a>
+                </div>
+
+                <div data-alert="" data-ng-repeat="alert in reportAlert" data-type="alert.type">{{alert.msg}}</div>
+                <div data-ng-show="query.length && !loading && !isLoadMoreData">
+                    <div data-alert="" data-type="{true: 'info', false: 'warning'}[productlists.length > 0]">
+                        <div data-ng-pluralize="" data-count="productlists.length" data-when="pluralizer('product', 'products', true)"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
